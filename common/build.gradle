@@ -1,0 +1,21 @@
+plugins {
+    id 'architectury-plugin'
+    id 'dev.architectury.loom'
+}
+
+architectury {
+    common("fabric", "forge")
+}
+
+loom {
+    minecraft {
+        version = '1.20.4'
+        mappings = 'official'
+    }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:1.20.4"
+    implementation "com.ibm.icu:icu4j:74.2" 
+    modImplementation "dev.architectury:architectury-api:7.1.0" 
+}
