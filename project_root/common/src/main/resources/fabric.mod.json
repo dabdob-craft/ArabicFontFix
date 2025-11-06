@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "arabicfontfix",
+  "version": "${version}",
+  "name": "Arabic Font Fix",
+  "description": "A multi-loader mod to fix Arabic text display in Minecraft.",
+  "authors": [
+    "dabdob_craft"
+  ],
+  "contact": {
+    "homepage": "https://yourwebsite.com",
+    "sources": "https://github.com/dabdob-craft/ArabicFontFix"
+  },
+  "license": "MIT",
+  "icon": "assets/arabicfontfix/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.dabdob_craft.arabicfontfix.ArabicFontFixMod"
+    ]
+  },
+  "mixins": [
+    "arabicfontfix.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.0",
+    "minecraft": ">=1.20.4",
+    "architectury": ">=7.1.0"
+  }
+}
