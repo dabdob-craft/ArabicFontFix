@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "arabicfontfix",
+  "version": "1.0.0",
+  "name": "Arabic Font Fix",
+  "description": "Fixes Right-to-Left writing and contextual shaping for Arabic text.",
+  "authors": [
+    "dabdob_craft (Arabicraft Team)"
+  ],
+  "license": "CC0-1.0",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.arabicraft.fontfix.FabricFontFixClient"
+    ]
+  },
+  "mixins": [
+    "arabicfontfix.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.0",
+    "minecraft": ">=1.18.2"
+  },
+  "contact": {
+    "modrinth": "https://modrinth.com/mod/arabic-font-fix-aff",
+    "sources": "https://modrinth.com/mod/arabic-font-fix-aff" 
+  }
+}
