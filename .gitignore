@@ -3,3 +3,4 @@ build/
 fabric-api-*.jar
 icu4j.jar
 gson-*.jar
+*.jar
