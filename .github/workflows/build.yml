@@ -13,8 +13,8 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
     - uses: gradle/actions/setup-gradle@v3
-    - name: Build with Gradle (Clean and Build)
-      run: ./gradlew clean build
+    - name: Build with Gradle
+      run: ./gradlew build
     - name: Upload Artifacts
       uses: actions/upload-artifact@v4
       with:
