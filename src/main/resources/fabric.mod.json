@@ -1,28 +1,27 @@
 {
   "schemaVersion": 1,
   "id": "arabicfontfix",
-  "version": "1.0.0",
+  "version": "${version}",
   "name": "Arabic Font Fix",
-  "description": "Fixes Right-to-Left writing and contextual shaping for Arabic text.",
+  "description": "A client-side mod that fixes the display of Arabic text in Minecraft.",
   "authors": [
-    "dabdob_craft (Arabicraft Team)"
+    "dabdob-craft"
   ],
-  "license": "CC0-1.0",
+  "contact": {
+    "homepage": "your_github_repo_link",
+    "sources": "your_github_repo_link"
+  },
+  "license": "MIT",
+  "icon": "icon.png",
   "environment": "client",
   "entrypoints": {
     "client": [
       "com.arabicraft.fontfix.FabricFontFixClient"
     ]
   },
-  "mixins": [
-    "arabicfontfix.mixins.json"
-  ],
   "depends": {
-    "fabricloader": ">=0.14.0",
-    "minecraft": ">=1.18.2"
-  },
-  "contact": {
-    "modrinth": "https://modrinth.com/mod/arabic-font-fix-aff",
-    "sources": "https://modrinth.com/mod/arabic-font-fix-aff" 
+    "fabricloader": ">=0.15.11",
+    "minecraft": ">=1.20.1",
+    "fabric-api": "*"
   }
 }
