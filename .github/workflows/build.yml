@@ -15,8 +15,6 @@ jobs:
     - uses: gradle/actions/setup-gradle@v3
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
-    - name: Grant execute permission for wrapper JAR
-      run: chmod +x gradle/wrapper/gradle-wrapper.jar
     - name: Build with Gradle
       run: ./gradlew build
     - name: Upload Mod Artifact
