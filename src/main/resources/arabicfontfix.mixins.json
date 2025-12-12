@@ -1,15 +1,11 @@
 {
   "required": true,
-  "minVersion": "0.8",
   "package": "com.arabicraft.fontfix.mixin",
   "compatibilityLevel": "JAVA_17",
-  "mixins": [
-  ],
   "client": [
-    "TextRendererMixin" 
+    "TextRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1
   }
 }
-
