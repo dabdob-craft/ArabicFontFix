@@ -12,8 +12,11 @@
     "sources": "your_github_repo_link"
   },
   "license": "MIT",
-  "icon": "icon.png",
+  "icon": "assets/arabicfontfix/icon.png",
   "environment": "client",
+  "mixins": [
+    "arabicfontfix.mixins.json"
+  ],
   "entrypoints": {
     "client": [
       "com.arabicraft.fontfix.FabricFontFixClient"
