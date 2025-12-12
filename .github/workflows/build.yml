@@ -1,4 +1,4 @@
-Name: Build Mod
+name: Build Mod
 on:
   push:
     branches: [main]
