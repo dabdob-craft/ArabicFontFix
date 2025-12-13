@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 public abstract class TextRendererMixin {
 
     @ModifyVariable(
-        method = "drawInternal(Ljava/lang/String;FFIZLnet/minecraft/util/math/Matrix4f;Z)F",
+        method = "drawInternal(Ljava/lang/String;FFIZLorg/joml/Matrix4f;Z)F", 
         at = @At(value = "HEAD"),
         argsOnly = true,
         ordinal = 0 
