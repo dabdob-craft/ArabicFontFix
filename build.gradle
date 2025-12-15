@@ -18,6 +18,7 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:0.92.0+1.20.1"
     
     include(implementation("com.ibm.icu:icu4j:74.2"))
+    include(implementation("org.joml:joml:1.10.5")) 
 }
 
 java {
