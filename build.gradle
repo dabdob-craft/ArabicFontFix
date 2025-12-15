@@ -17,8 +17,16 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:0.15.11"
     modImplementation "net.fabricmc.fabric-api:fabric-api:0.92.0+1.20.1"
     
-    include(implementation("com.ibm.icu:icu4j:74.2"))
-    include(implementation("org.joml:joml:1.10.5")) 
+    include(implementation("org.joml:joml:1.10.5")) { transitive = false } 
+    include(implementation("com.ibm.icu:icu4j:74.2")) { transitive = false }
+    
+    tasks.withType(Jar).configureEach { jar ->
+        if (jar.archiveClassifier.get() == "dev" || jar.archiveClassifier.get() == "") {
+            jar.from(configurations.runtimeClasspath.filter { it.name.endsWith(".jar") }.files.minus(configurations.compileClasspath.files)) {
+                it.exclude('META-INF/**')
+            }
+        }
+    }
 }
 
 java {
