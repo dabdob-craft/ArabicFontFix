@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.6-SNAPSHOT'
+    id 'fabric-loom' version '1.7-SNAPSHOT'
     id 'java'
 }
 
@@ -30,10 +30,4 @@ java {
 tasks.withType(JavaCompile).configureEach {
     it.options.encoding = "UTF-8"
     it.options.release = 17
-}
-
-jar {
-    from configurations.runtimeClasspath.filter { it.name.endsWith(".jar") }.files.minus(configurations.compileClasspath.files) {
-        it.exclude('META-INF/**')
-    }
 }
