@@ -1,18 +1,9 @@
 package com.arabicraft.fontfix;
 
-import io.github.harf.harfbuzz.HarfBuzz;
-import io.github.harf.harfbuzz.HBBuffer;
-import io.github.harf.harfbuzz.HBScript;
+import com.github.nyangkhmer.text.ArabicShaping;
+import com.github.nyangkhmer.text.Bidi;
 
 public class ArabicShaper {
-
-    static {
-        try {
-            HarfBuzz.initialize();
-        } catch (Exception e) {
-            System.err.println("Failed to initialize HarfBuzz: " + e.getMessage());
-        }
-    }
 
     public static String fixText(String original) {
         if (original == null || original.isEmpty()) {
@@ -20,19 +11,13 @@ public class ArabicShaper {
         }
 
         try {
-            HBBuffer buffer = new HBBuffer();
+            String shaped = ArabicShaping.shapeText(original, true, true);
             
-            buffer.addString(original);
-            
-            buffer.setDirection(HBBuffer.HBDirection.RTL);
-            buffer.setScript(HBScript.Arabic);
-            
-            HarfBuzz.shape(buffer);
-
-            return buffer.toString(); 
+            Bidi bidi = new Bidi(shaped, Bidi.RTL, 0);
+            return bidi.writeReordered();
 
         } catch (Exception e) {
-            System.err.println("HarfBuzz Text Fix Error: " + e.getMessage());
+            System.err.println("KhmerUtils Text Fix Error: " + e.getMessage());
             return original;
         }
     }
