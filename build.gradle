@@ -41,6 +41,17 @@ shadowJar {
     
     exclude 'fabric.mod.json'
     
+    exclude 'com/ibm/icu/impl/data/icudt74b/**' 
+    exclude 'com/ibm/icu/impl/data/icudt74l/**' 
+    
+    exclude 'com/ibm/icu/impl/data/icudt74b/curr/**'
+    exclude 'com/ibm/icu/impl/data/icudt74b/region/**'
+    exclude 'com/ibm/icu/impl/data/icudt74b/zone/**'
+    exclude 'com/ibm/icu/impl/data/icudt74b/rbnf/**'
+    
+    exclude 'com/ibm/icu/impl/data/icudt74b/coll/**'
+    exclude 'com/ibm/icu/impl/data/icudt74b/locales/**'
+    
     exclude '**/pom.properties', '**/pom.xml' 
 }
 
