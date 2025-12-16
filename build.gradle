@@ -10,10 +10,6 @@ archivesBaseName = "ArabicFontFix"
 
 repositories {
     mavenCentral()
-    maven {
-        name = "JitPack"
-        url = "https://jitpack.io"
-    }
 }
 
 dependencies {
@@ -24,7 +20,7 @@ dependencies {
     
     implementation("org.joml:joml:1.10.5") 
     
-    implementation("com.github.nyang-khmer:khmer-util:1.0.0") 
+    implementation("net.sourceforge.argparser:argparser:1.1") 
 }
 
 java {
@@ -40,7 +36,7 @@ tasks.withType(JavaCompile).configureEach {
 
 shadowJar {
     relocate 'org.joml', "${group}.libs.joml"
-    relocate 'com.github.nyang_khmer', "${group}.libs.khmer" 
+    relocate 'net.sourceforge.argparser', "${group}.libs.argparser" 
     
     from sourceSets.main.output 
     
