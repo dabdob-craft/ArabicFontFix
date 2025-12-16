@@ -1,6 +1,7 @@
 plugins {
     id 'fabric-loom' version '1.6-SNAPSHOT'
     id 'java'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
 }
 
 version = "1.0.0"
@@ -17,8 +18,8 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:0.15.11"
     modImplementation "net.fabricmc.fabric-api:fabric-api:0.92.0+1.20.1"
     
-    include(implementation("org.joml:joml:1.10.5")) 
-    include(implementation("com.ibm.icu:icu4j:74.2"))
+    implementation("org.joml:joml:1.10.5") 
+    implementation("com.ibm.icu:icu4j:74.2")
 }
 
 java {
@@ -30,4 +31,21 @@ java {
 tasks.withType(JavaCompile).configureEach {
     it.options.encoding = "UTF-8"
     it.options.release = 17
+}
+
+shadowJar {
+    relocate 'org.joml', "${group}.libs.joml"
+    relocate 'com.ibm.icu', "${group}.libs.icu"
+
+    from sourceSets.main.output 
+    
+    exclude 'fabric.mod.json'
+    
+    exclude '**/pom.properties', '**/pom.xml' 
+}
+
+jar.enabled = false
+
+remapJar {
+    inputFile = shadowJar.archiveFile
 }
