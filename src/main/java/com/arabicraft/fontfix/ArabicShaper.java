@@ -1,6 +1,5 @@
 package com.arabicraft.fontfix;
 
-import com.dabdobcraft.arabicreshaper.ArabicReshaper; 
 
 public class ArabicShaper {
     
