@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.6-SNAPSHOT'
+    id 'fabric-loom' version '1.6'
     id 'java'
     id 'com.github.johnrengelman.shadow' version '8.1.1'
 }
@@ -10,6 +10,10 @@ archivesBaseName = "ArabicFontFix"
 
 repositories {
     mavenCentral()
+    maven {
+        name = "JitPack"
+        url = "https://jitpack.io"
+    }
 }
 
 dependencies {
