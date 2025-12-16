@@ -1,7 +1,6 @@
 package com.arabicraft.fontfix;
 
-import com.github.nyangkhmer.text.ArabicShaping;
-import com.github.nyangkhmer.text.Bidi;
+import net.sourceforge.argparser.internal.BidiUtils;
 
 public class ArabicShaper {
 
@@ -11,13 +10,10 @@ public class ArabicShaper {
         }
 
         try {
-            String shaped = ArabicShaping.shapeText(original, true, true);
-            
-            Bidi bidi = new Bidi(shaped, Bidi.RTL, 0);
-            return bidi.writeReordered();
+            return BidiUtils.bidiReorder(original);
 
         } catch (Exception e) {
-            System.err.println("KhmerUtils Text Fix Error: " + e.getMessage());
+            System.err.println("BidiUtils Text Fix Error: " + e.getMessage());
             return original;
         }
     }
