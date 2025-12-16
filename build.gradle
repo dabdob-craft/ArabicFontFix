@@ -1,7 +1,6 @@
 plugins {
     id 'fabric-loom' version '1.6-SNAPSHOT'
     id 'java'
-    id 'com.github.johnrengelman.shadow' version '8.1.1'
 }
 
 version = "1.0.0"
@@ -20,10 +19,6 @@ dependencies {
     mappings "net.fabricmc:yarn:1.20.1+build.10:v2"
     modImplementation "net.fabricmc:fabric-loader:0.15.11"
     modImplementation "net.fabricmc.fabric-api:fabric-api:0.92.0+1.20.1"
-    
-    implementation("org.joml:joml:1.10.5")  
-    
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
 
 java {
@@ -37,20 +32,4 @@ tasks.withType(JavaCompile).configureEach {
     it.options.release = 17
 }
 
-shadowJar {
-    relocate 'org.joml', "${group}.libs.joml" 
-    
-    from sourceSets.main.output 
-    
-    exclude 'fabric.mod.json'
-    
-    exclude '**/pom.properties', '**/pom.xml' 
-}
-
-jar.enabled = false
-
-remapJar {
-    inputFile = shadowJar.archiveFile
-}
-// Force commit
-// Final attempt to force new commit
+jar.enabled = true
