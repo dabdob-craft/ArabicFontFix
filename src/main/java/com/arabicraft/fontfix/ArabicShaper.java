@@ -1,11 +1,18 @@
 package com.arabicraft.fontfix;
 
-import com.ibm.icu.text.Bidi;
-import com.ibm.icu.text.ArabicShaping;
-import com.ibm.icu.text.ArabicShapingException;
+import io.github.harf.harfbuzz.HarfBuzz;
+import io.github.harf.harfbuzz.HBBuffer;
+import io.github.harf.harfbuzz.HBScript;
 
 public class ArabicShaper {
-    private static final int SHAPING_OPTIONS = 2;
+
+    static {
+        try {
+            HarfBuzz.initialize();
+        } catch (Exception e) {
+            System.err.println("Failed to initialize HarfBuzz: " + e.getMessage());
+        }
+    }
 
     public static String fixText(String original) {
         if (original == null || original.isEmpty()) {
@@ -13,19 +20,20 @@ public class ArabicShaper {
         }
 
         try {
-            ArabicShaping shaper = new ArabicShaping(SHAPING_OPTIONS);
-            String shaped = shaper.shape(original);
+            HBBuffer buffer = new HBBuffer();
             
-            Bidi bidi = new Bidi();
-            bidi.setPara(shaped, Bidi.RTL, null);
-            return bidi.writeReordered(Bidi.DO_MIRRORING);
+            buffer.addString(original);
+            
+            buffer.setDirection(HBBuffer.HBDirection.RTL);
+            buffer.setScript(HBScript.Arabic);
+            
+            HarfBuzz.shape(buffer);
 
-        } catch (ArabicShapingException e) {
-            System.err.println("Arabic Shaping Error: " + e.getMessage());
-            return original;
+            return buffer.toString(); 
+
         } catch (Exception e) {
-             System.err.println("General Text Fix Error: " + e.getMessage());
-             return original;
+            System.err.println("HarfBuzz Text Fix Error: " + e.getMessage());
+            return original;
         }
     }
 }
