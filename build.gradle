@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.6'
+    id 'fabric-loom' version '1.6-SNAPSHOT'
     id 'java'
     id 'com.github.johnrengelman.shadow' version '8.1.1'
 }
@@ -10,10 +10,6 @@ archivesBaseName = "ArabicFontFix"
 
 repositories {
     mavenCentral()
-    maven {
-        name = "JitPack"
-        url = "https://jitpack.io"
-    }
 }
 
 dependencies {
@@ -24,8 +20,7 @@ dependencies {
     
     implementation("org.joml:joml:1.10.5") 
     
-    implementation("io.github.harf:harfbuzz-icu:5.3.1.2")
-    implementation("io.github.harf:harfbuzz:5.3.1")
+    implementation("com.github.nyang-khmer:khmer-util:1.0.0") 
 }
 
 java {
@@ -41,8 +36,8 @@ tasks.withType(JavaCompile).configureEach {
 
 shadowJar {
     relocate 'org.joml', "${group}.libs.joml"
-    relocate 'io.github.harf', "${group}.libs.harf"
-
+    relocate 'com.github.nyang_khmer', "${group}.libs.khmer" 
+    
     from sourceSets.main.output 
     
     exclude 'fabric.mod.json'
