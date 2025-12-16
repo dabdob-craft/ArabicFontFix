@@ -19,7 +19,9 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:0.92.0+1.20.1"
     
     implementation("org.joml:joml:1.10.5") 
-    implementation("com.ibm.icu:icu4j:74.2")
+    
+    implementation("io.github.harf:harfbuzz-icu:5.3.1.2")
+    implementation("io.github.harf:harfbuzz:5.3.1")
 }
 
 java {
@@ -35,22 +37,11 @@ tasks.withType(JavaCompile).configureEach {
 
 shadowJar {
     relocate 'org.joml', "${group}.libs.joml"
-    relocate 'com.ibm.icu', "${group}.libs.icu"
+    relocate 'io.github.harf', "${group}.libs.harf"
 
     from sourceSets.main.output 
     
     exclude 'fabric.mod.json'
-    
-    exclude 'com/ibm/icu/impl/data/icudt74b/**' 
-    exclude 'com/ibm/icu/impl/data/icudt74l/**' 
-    
-    exclude 'com/ibm/icu/impl/data/icudt74b/curr/**'
-    exclude 'com/ibm/icu/impl/data/icudt74b/region/**'
-    exclude 'com/ibm/icu/impl/data/icudt74b/zone/**'
-    exclude 'com/ibm/icu/impl/data/icudt74b/rbnf/**'
-    
-    exclude 'com/ibm/icu/impl/data/icudt74b/coll/**'
-    exclude 'com/ibm/icu/impl/data/icudt74b/locales/**'
     
     exclude '**/pom.properties', '**/pom.xml' 
 }
