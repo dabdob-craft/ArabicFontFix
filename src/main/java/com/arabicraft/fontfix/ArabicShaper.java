@@ -1,8 +1,10 @@
 package com.arabicraft.fontfix;
 
-import net.sourceforge.argparser.internal.BidiUtils;
+import com.dabdobcraft.arabicreshaper.ArabicReshaper; 
 
 public class ArabicShaper {
+    
+    private static final ArabicReshaper RESHAPER = new ArabicReshaper();
 
     public static String fixText(String original) {
         if (original == null || original.isEmpty()) {
@@ -10,10 +12,10 @@ public class ArabicShaper {
         }
 
         try {
-            return BidiUtils.bidiReorder(original);
+            return RESHAPER.reshape(original);
 
         } catch (Exception e) {
-            System.err.println("BidiUtils Text Fix Error: " + e.getMessage());
+            System.err.println("Arabic Reshaper Fix Error: " + e.getMessage());
             return original;
         }
     }

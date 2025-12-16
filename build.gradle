@@ -10,6 +10,9 @@ archivesBaseName = "ArabicFontFix"
 
 repositories {
     mavenCentral()
+    flatDir {
+        dirs 'libs' 
+    }
 }
 
 dependencies {
@@ -21,6 +24,8 @@ dependencies {
     implementation("org.joml:joml:1.10.5") 
     
     implementation("net.sourceforge.argparser:argparser:1.1") 
+    
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
 
 java {
