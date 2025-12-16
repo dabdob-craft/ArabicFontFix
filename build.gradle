@@ -10,6 +10,10 @@ archivesBaseName = "ArabicFontFix"
 
 repositories {
     mavenCentral()
+    maven {
+        name = "JitPack"
+        url = "https://jitpack.io"
+    }
 }
 
 dependencies {
