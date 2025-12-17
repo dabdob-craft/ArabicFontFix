@@ -10,6 +10,7 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 public class TextRendererMixin {
     @ModifyVariable(method = "draw(Ljava/lang/String;FFIZLorg/joml/Matrix4f;Lnet/minecraft/client/render/VertexConsumerProvider;Lnet/minecraft/client/font/TextRenderer$TextLayerType;IIZ)I", at = @At("HEAD"), argsOnly = true)
     private String onDraw(String text) {
-        return ArabicShaper.reshape(text);
+        // قمنا بتغيير reshape إلى shape لتطابق الموجود في ArabicShaper.java
+        return ArabicShaper.shape(text);
     }
 }
