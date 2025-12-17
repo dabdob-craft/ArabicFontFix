@@ -7,15 +7,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 @Mixin(TextRenderer.class)
-public abstract class TextRendererMixin {
-
-    @ModifyVariable(
-        method = "drawInternal(Ljava/lang/String;FFIZLorg/joml/Matrix4f;Z)F", 
-        at = @At(value = "HEAD"),
-        argsOnly = true,
-        ordinal = 0 
-    )
-    private String arabicfontfix_modifyTextBeforeDrawing(String text) {
-        return ArabicShaper.fixText(text);
+public class TextRendererMixin {
+    @ModifyVariable(method = "draw(Ljava/lang/String;FFIZLorg/joml/Matrix4f;Lnet/minecraft/client/render/VertexConsumerProvider;Lnet/minecraft/client/font/TextRenderer$TextLayerType;IIZ)I", at = @At("HEAD"), argsOnly = true)
+    private String onDraw(String text) {
+        return ArabicShaper.reshape(text);
     }
 }
