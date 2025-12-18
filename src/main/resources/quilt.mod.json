@@ -1,0 +1,32 @@
+{
+  "schema_version": 0,
+  "quilt_loader": {
+    "group": "com.dabdobcraft",
+    "id": "arabicfontfix",
+    "version": "1.0.0",
+    "metadata": {
+      "name": "Arabic Font Fix",
+      "description": "A lightweight mod to fix Arabic text connection and RTL direction.",
+      "contact": {
+        "homepage": "https://modrinth.com/mod/arabicfontfix",
+        "sources": "https://github.com/dabdob-craft/ArabicFontFix",
+        "issues": "https://github.com/dabdob-craft/ArabicFontFix/issues"
+      },
+      "contributors": {
+        "ArabiCraft Organization {dabdob-craft} and {master_herobrine989}": "Owner"
+      },
+      "license": "MIT",
+      "icon": "assets/arabicfontfix/icon.png"
+    },
+    "intermediate_mappings": "net.fabricmc:intermediary",
+    "depends": [
+      {
+        "quilt_loader": ">=0.15.0"
+      },
+      {
+        "minecraft": ">=1.18 <=1.20.1"
+      }
+    ]
+  },
+  "mixin": "arabicfontfix.mixins.json"
+}
