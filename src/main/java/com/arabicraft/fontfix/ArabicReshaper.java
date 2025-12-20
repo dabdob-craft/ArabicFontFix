@@ -85,13 +85,13 @@ public class ArabicReshaper {
         return bidi.reverse().toString();
     }
     
-    private boolean isConnectable(char c) {
+    private static boolean isConnectable(char c) {
         return !(c == 0x0621 || c == 0x0622 || c == 0x0623 || c == 0x0624 || c == 0x0625 || c == 0x0627 || 
                  c == 0x0629 || c == 0x062F || c == 0x0630 || c == 0x0631 || c == 0x0632 || c == 0x0648 || 
                  c == 0x0649);
     }
     
-    private boolean isArabicLetter(char c) {
+    private static boolean isArabicLetter(char c) {
         return c >= 0x0621 && c <= 0x064A;
     }
 }
