@@ -1,13 +1,21 @@
+buildscript {
+    repositories {
+        maven { url 'https://maven.minecraftforge.net' }
+        mavenCentral()
+    }
+    dependencies {
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', transitive: true
+    }
+}
+
 allprojects {
     apply plugin: 'java'
-    
     group = 'com.arabicraft.fontfix'
     version = '1.0.0'
 
     repositories {
-        mavenCentral()
         maven { url 'https://maven.minecraftforge.net/' }
-        maven { url 'https://maven.fabricmc.net/' }
+        mavenCentral()
     }
 }
 
