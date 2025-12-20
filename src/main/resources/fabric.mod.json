@@ -15,7 +15,7 @@
   "license": "MIT",
   "icon": "assets/arabicfontfix/icon.png",
   "environment": "client",
-  "entrypoints": {},
+  "entrypoints": { "client": [ "com.arabicraft.fontfix.ArabicFontFixClient" ] },
   "mixins": [
     "arabicfontfix.mixins.json"
   ],

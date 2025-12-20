@@ -19,6 +19,11 @@
       "icon": "assets/arabicfontfix/icon.png"
     },
     "intermediate_mappings": "net.fabricmc:intermediary",
+    "entrypoints": {
+      "client": [
+        "com.arabicraft.fontfix.ArabicFontFixClient"
+      ]
+    },
     "depends": [
       {
         "quilt_loader": ">=0.15.0"
