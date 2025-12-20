@@ -14,15 +14,14 @@
   },
   "license": "MIT",
   "icon": "assets/arabicfontfix/icon.png",
-  "environment": "*",
+  "environment": "client",
   "entrypoints": {},
   "mixins": [
     "arabicfontfix.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.15.0",
-    "fabric-api": "*",
     "minecraft": ">=1.14",
-    "java": ">=17"
+    "java": ">=8"
   }
 }
