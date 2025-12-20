@@ -1,9 +1,5 @@
-pluginManagement {
-    repositories {
-        maven { url = "https://maven.fabricmc.net/" }
-        mavenCentral()
-        gradlePluginPortal()
-    }
-}
+rootProject.name = 'ArabicFontFix-Multi'
 
-rootProject.name = 'arabicfontfix'
+include 'common'
+include 'forge-1.8.9'
+include 'forge-1.16.5'

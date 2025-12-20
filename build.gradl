@@ -1,0 +1,25 @@
+subprojects {
+    apply plugin: 'java'
+
+    group = 'com.arabicraft.fontfix'
+    version = '1.0.0'
+
+    repositories {
+        mavenCentral()
+        maven { url 'https://maven.minecraftforge.net/' }
+    }
+
+    dependencies {
+        if (project.name != 'common') {
+            implementation project(':common')
+        }
+    }
+
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+    }
+}
+
+task buildAll {
+    dependsOn subprojects.build
+}

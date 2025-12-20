@@ -1,0 +1,10 @@
+[
+{
+  "modid": "arabicfontfix",
+  "name": "Arabic Font Fix",
+  "description": "Fixes Arabic text rendering for 1.8.9 PvP players.",
+  "version": "1.0",
+  "mcversion": "1.8.9",
+  "authorList": ["Arabicraft"]
+}
+]
