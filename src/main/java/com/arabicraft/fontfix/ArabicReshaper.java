@@ -41,7 +41,7 @@ public class ArabicReshaper {
         {0x064A, 0xFEF2, 0xFEF3, 0xFEF4, 0xFEF1}  
     };
 
-    public String reshape(String original) {
+    public static String reshape(String original) {
         if (original == null || original.isEmpty()) {
             return original;
         }
