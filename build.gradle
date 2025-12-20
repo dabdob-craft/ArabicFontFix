@@ -39,3 +39,12 @@ task quiltJar(type: Jar) {
 }
 
 build.dependsOn fabricJar, quiltJar
+
+tasks.withType(Copy).configureEach {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+tasks.withType(Jar).configureEach {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
