@@ -3,12 +3,11 @@ plugins {
     id 'maven-publish'
 }
 
-version = '1.0.0'
-group = 'com.arabicraft'
+version = "1.0.0"
+group = "com.arabicraft"
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+base {
+    archivesName = "ArabicFontFix"
 }
 
 dependencies {
@@ -18,27 +17,14 @@ dependencies {
 }
 
 tasks.withType(JavaCompile).configureEach {
-    it.options.encoding = "UTF-8"
     it.options.release = 8
 }
 
-task fabricJar(type: Jar) {
-    archiveClassifier = 'fabric'
-    from sourceSets.main.output
-    from("src/main/resources") {
-        exclude "quilt.mod.json"
-    }
+java {
+    withSourcesJar()
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }
-
-task quiltJar(type: Jar) {
-    archiveClassifier = 'quilt'
-    from sourceSets.main.output
-    from("src/main/resources") {
-        exclude "fabric.mod.json"
-    }
-}
-
-build.dependsOn fabricJar, quiltJar
 
 tasks.withType(Copy).configureEach {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
@@ -48,11 +34,9 @@ tasks.withType(Jar).configureEach {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
 
-
-tasks.withType(Copy).configureEach {
-    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-}
-
-tasks.withType(Jar).configureEach {
-    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+processResources {
+    inputs.property "version", project.version
+    filesMatching("fabric.mod.json") {
+        expand "version": project.version
+    }
 }
