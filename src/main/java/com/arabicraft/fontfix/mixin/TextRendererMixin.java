@@ -8,9 +8,9 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 @Mixin(TextRenderer.class)
 public class TextRendererMixin {
-    @ModifyVariable(method = "draw(Ljava/lang/String;FFIZLnet/minecraft/util/math/Matrix4f;Lnet/minecraft/client/render/VertexConsumerProvider;ZII)I", at = @At("HEAD"), argsOnly = true, remap = false)
-    private String onDraw(String text) {
-        if (text == null || text.length() == 0) return text;
+    @ModifyVariable(method = "drawInternal(Ljava/lang/String;FFIZLnet/minecraft/util/math/Matrix4f;Lnet/minecraft/client/render/VertexConsumerProvider;ZIIZ)I", at = @At("HEAD"), argsOnly = true, remap = false)
+    private String onDrawInternal(String text) {
+        if (text == null || text.isEmpty()) return text;
         return ArabicReshaper.reshape(text);
     }
 }
