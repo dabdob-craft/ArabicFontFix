@@ -1,6 +1,4 @@
-plugins {
-    id 'net.minecraftforge.gradle'
-}
+apply plugin: 'net.minecraftforge.gradle'
 
 minecraft {
     mappings channel: 'official', version: '1.16.5'
