@@ -4,10 +4,18 @@ public class ArabicReshaper {
     public static String reshape(String input) {
         if (input == null || input.isEmpty()) return input;
         
-        StringBuilder reshaped = new StringBuilder();
-        for (int i = input.length() - 1; i >= 0; i--) {
-            reshaped.append(input.charAt(i));
+        StringBuilder result = new StringBuilder();
+        for (char c : input.toCharArray()) {
+            if (isArabic(c)) {
+                result.append(c);
+            } else {
+                result.append(c);
+            }
         }
-        return reshaped.toString();
+        return result.reverse().toString();
+    }
+
+    private static boolean isArabic(char c) {
+        return c >= 0x0600 && c <= 0x06FF;
     }
 }
