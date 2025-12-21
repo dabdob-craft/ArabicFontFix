@@ -1,0 +1,10 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="MIT"
+
+[[mods]]
+modId="arabicfontfix"
+version="1.0.0"
+displayName="Arabic Font Fix"
+authors="DabdobCraft"
+description="Fixes Arabic letters connection in Minecraft."
